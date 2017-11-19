@@ -2,14 +2,10 @@ package imta.sinigagliabookscollection.books;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import imta.sinigagliabookscollection.R;
-import imta.sinigagliabookscollection.model.Book;
-import timber.log.Timber;
 
 /**
  * Created by Steeve Sinigaglia on 18/11/2017.
@@ -40,7 +36,7 @@ public class BookItemView extends ConstraintLayout {
 
     public void bindView(Book book) {
         titleTextView.setText(book.getTitle());
-        priceTextView.setText(String.valueOf(book.getPrice()));
+        priceTextView.setText(String.valueOf(book.getPrice()) + " €");
     }
 
 

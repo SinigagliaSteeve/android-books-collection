@@ -1,4 +1,4 @@
-package imta.sinigagliabookscollection.model
+package imta.sinigagliabookscollection.books
 
 import android.os.Parcel
 import android.os.Parcelable

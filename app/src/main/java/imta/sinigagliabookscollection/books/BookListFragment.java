@@ -9,19 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import java.util.List;
 
 import imta.sinigagliabookscollection.R;
-import imta.sinigagliabookscollection.model.Book;
-import imta.sinigagliabookscollection.service.BookService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import timber.log.Timber;
 
 /**
  * Created by Steeve Sinigaglia on 18/11/2017.

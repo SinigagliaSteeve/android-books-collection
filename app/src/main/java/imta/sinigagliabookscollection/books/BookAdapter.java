@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import imta.sinigagliabookscollection.R;
-import imta.sinigagliabookscollection.model.Book;
 
 /**
  * Created by Steeve Sinigaglia on 18/11/2017.

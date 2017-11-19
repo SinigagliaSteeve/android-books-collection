@@ -13,8 +13,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import imta.sinigagliabookscollection.R;
-import imta.sinigagliabookscollection.model.Book;
-import timber.log.Timber;
 
 /**
  * Created by Steeve Sinigaglia on 18/11/2017.

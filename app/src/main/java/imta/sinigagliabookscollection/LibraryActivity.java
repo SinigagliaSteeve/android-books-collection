@@ -6,14 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.widget.Toast;
 
 import imta.sinigagliabookscollection.books.BookBundleCode;
 import imta.sinigagliabookscollection.books.BookDetailFragment;
 import imta.sinigagliabookscollection.books.BookListFragment;
 import imta.sinigagliabookscollection.books.DetailsBookActivity;
-import imta.sinigagliabookscollection.model.Book;
+import imta.sinigagliabookscollection.books.Book;
 import timber.log.Timber;
 
 /**

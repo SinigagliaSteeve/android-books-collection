@@ -1,8 +1,7 @@
-package imta.sinigagliabookscollection.service;
+package imta.sinigagliabookscollection.books;
 
 import java.util.List;
 
-import imta.sinigagliabookscollection.model.Book;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
