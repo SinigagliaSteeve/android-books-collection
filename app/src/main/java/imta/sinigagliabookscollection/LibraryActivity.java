@@ -29,7 +29,6 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_layout);
 
-        this.detailFragment = new BookDetailFragment();
         //Timber tree.
         Timber.plant(new Timber.DebugTree());
     }
@@ -37,7 +36,7 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
     @Override
     public void onBookSelected(Book book) {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            if (detailFragment == null || detailFragment.getBook() != book) {
+            if (detailFragment == null || book != null && detailFragment.getBook() != book) {
                 detailFragment = new BookDetailFragment();
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(BookBundleCode.BOOK_KEY, book);

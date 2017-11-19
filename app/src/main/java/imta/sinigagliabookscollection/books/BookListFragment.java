@@ -99,7 +99,9 @@ public class BookListFragment extends Fragment implements BookAdapter.OnBookSele
     @Override
     public void onBookSelected(Book book) {
         currentBook = book;
-        listener.onBookSelected(book);
+        if (book != null) {
+            listener.onBookSelected(book);
+        }
     }
 
     public interface OnBookSelectedListener {
