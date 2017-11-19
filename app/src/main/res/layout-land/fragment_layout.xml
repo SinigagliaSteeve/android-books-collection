@@ -4,16 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <FrameLayout
+    <fragment
         android:id="@+id/books"
-        android:layout_width="wrap_content"
+        class="imta.sinigagliabookscollection.books.BookListFragment"
+        android:layout_width="0px"
         android:layout_height="match_parent"
-        android:layout_weight="1"></FrameLayout>
+        android:layout_weight="1"></fragment>
 
     <FrameLayout
         android:id="@+id/bookDetail"
-        android:layout_width="wrap_content"
+        android:layout_width="0px"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/colorPrimaryDark"></FrameLayout>
+        android:layout_weight="1"></FrameLayout>
 </android.widget.LinearLayout>

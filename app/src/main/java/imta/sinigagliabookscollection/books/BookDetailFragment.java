@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import imta.sinigagliabookscollection.R;
 import imta.sinigagliabookscollection.model.Book;
@@ -17,12 +18,39 @@ import timber.log.Timber;
 
 public class BookDetailFragment extends Fragment {
 
+    private TextView title;
+    private TextView price;
+    private TextView isbn;
+    private TextView synopsis;
+
+    private Book book;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_detail, container, false);
-        Timber.i("Book detail : " + getArguments().getParcelable(BookBundleCode.BOOK_KEY));
+        title = view.findViewById(R.id.title);
+        price = view.findViewById(R.id.price);
+        isbn = view.findViewById(R.id.isbn);
+        synopsis = view.findViewById(R.id.synopsis);
+
+        if (getArguments() != null) {
+            bindView(getArguments().getParcelable(BookBundleCode.BOOK_KEY));
+        }
+
         return view;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    private void bindView(Book book) {
+        this.book = book;
+        if (book == null) return;
+        this.title.setText(book.getTitle());
+        this.price.setText(book.getPrice() + " €");
+        this.isbn.setText(book.getIsbn());
+        this.synopsis.setText(book.getSynopsis()[0]);
     }
 }

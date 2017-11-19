@@ -31,6 +31,8 @@ public class BookListFragment extends Fragment implements BookAdapter.OnBookSele
 
     private OnBookSelectedListener listener;
     private RecyclerView recyclerView;
+    private View rootView;
+    private Book currentBook;
 
     @Override
     public void onAttach(Context context) {
@@ -45,13 +47,28 @@ public class BookListFragment extends Fragment implements BookAdapter.OnBookSele
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.library_list, container, false);
-        recyclerView = view.findViewById(R.id.bookRecyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this.getContext(), 1));
-        recyclerView.setAdapter(new BookAdapter(LayoutInflater.from(BookListFragment.this.getContext()), this));
+        currentBook = null;
 
-        manageBookService();
-        return view;
+        if (rootView == null) { //in order to prevent back button pressed and don't fetch data again from webservice.
+            View view = inflater.inflate(R.layout.library_list, container, false);
+            rootView = view;
+            recyclerView = view.findViewById(R.id.bookRecyclerView);
+            recyclerView.setLayoutManager(new GridLayoutManager(this.getContext(), 1));
+            recyclerView.setAdapter(new BookAdapter(LayoutInflater.from(BookListFragment.this.getContext()), this));
+            manageBookService();
+        }
+
+        if (savedInstanceState != null) {
+            onBookSelected(savedInstanceState.getParcelable(BookBundleCode.BOOK_KEY));
+        }
+
+        return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(BookBundleCode.BOOK_KEY, currentBook);
     }
 
     private void manageBookService() {
@@ -78,8 +95,10 @@ public class BookListFragment extends Fragment implements BookAdapter.OnBookSele
         });
     }
 
+
     @Override
     public void onBookSelected(Book book) {
+        currentBook = book;
         listener.onBookSelected(book);
     }
 
