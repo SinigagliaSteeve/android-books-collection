@@ -29,28 +29,14 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_layout);
 
-//        this.bookListFragment = new BookListFragment();
         this.detailFragment = new BookDetailFragment();
         //Timber tree.
         Timber.plant(new Timber.DebugTree());
-
-//        this.manageBookService();
-
-
-//        if (bookListFragment == null) {
-//            bookListFragment = new BookListFragment();
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.books, bookListFragment, BookListFragment.class.getSimpleName())
-//                    .commit();
-//        }
-
     }
-
 
     @Override
     public void onBookSelected(Book book) {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
             if (detailFragment == null || detailFragment.getBook() != book) {
                 detailFragment = new BookDetailFragment();
                 Bundle bundle = new Bundle();
@@ -63,39 +49,10 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
             }
         } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             Intent intent = new Intent();
-
-            // explicitly set the activity context and class
-            // associated with the intent (context, class)
             intent.setClass(this, DetailsBookActivity.class);
-
-            // pass the current position
             intent.putExtra(BookBundleCode.BOOK_KEY, book);
-
             startActivity(intent);
-//            Bundle bundle = new Bundle();
-//            bundle.putParcelable(BookBundleCode.BOOK_KEY, book);
-//            detailFragment.setArguments(bundle);
-//
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.books, detailFragment, BookDetailFragment.class.getSimpleName())
-//                    .addToBackStack(BookDetailFragment.class.getSimpleName())
-//                    .commit();
-
         }
     }
-
-//    @Override
-//    public void onDetail() {
-//        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//            Timber.i("simule click");
-//        } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.books, detailFragment, BookDetailFragment.class.getSimpleName())
-//                    .addToBackStack(BookDetailFragment.class.getSimpleName())
-//                    .commit();
-//
-//        }
-//
-//    }
 
 }
